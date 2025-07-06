@@ -1,29 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Frozen Food - Admin</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --admin-primary: #2c3e50;
+            --admin-accent: #e74c3c;
+        }
+        
+        .admin-container {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            background: var(--admin-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .product-form {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-<body class="admin-page">
-    <header>
-        <h1>Admin Panel</h1>
-        <button id="logoutBtn">Logout</button>
-    </header>
-    
-    <div class="add-item-form">
-        <h2>Tambah Barang Baru</h2>
-        <form id="itemForm">
-            <input type="text" id="itemName" placeholder="Nama Barang" required>
-            <input type="text" id="itemPrice" placeholder="Harga" required>
-            <input type="text" id="itemImage" placeholder="URL Gambar" required>
-            <button type="submit">Tambahkan</button>
-        </form>
+<body class="admin-mode">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-tools"></i> PRODUCT MANAGEMENT</h1>
+            <div class="admin-actions">
+                <button class="action-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> View Site
+                </button>
+                <button class="action-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+        
+        <div class="product-form">
+            <h2><i class="fas fa-plus-circle"></i> Add New Product</h2>
+            <form id="productForm">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label><i class="fas fa-tag"></i> Product Name</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-dollar-sign"></i> Price</label>
+                        <input type="number" id="productPrice" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-link"></i> Image URL</label>
+                        <input type="url" id="productImage" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-align-left"></i> Description</label>
+                        <textarea id="productDesc" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-save"></i> SAVE PRODUCT
+                </button>
+            </form>
+        </div>
+        
+        <h2><i class="fas fa-boxes"></i> Current Products</h2>
+        <div class="product-grid" id="adminProductGrid">
+            <!-- Products will be loaded here -->
+        </div>
     </div>
-    
-    <div class="etalase-container" id="etalase">
-        <!-- Item akan dimasukkan melalui JavaScript -->
-    </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
