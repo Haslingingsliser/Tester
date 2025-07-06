@@ -1,18 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Frozen Food - Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrozenFood Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="login-page">
-    <div class="login-container">
-        <h1>Admin Login</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+<body>
+    <!-- Floating Login Button -->
+    <button id="loginBtn" class="float-login">
+        <i class="fas fa-user-circle"></i> ADMIN
+    </button>
+
+    <!-- Etalase Container -->
+    <div class="gallery-container">
+        <h1>FROZEN FOOD SHOWCASE</h1>
+        <div class="grid-etalase">
+            <!-- Item akan di-generate oleh JavaScript -->
+        </div>
     </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>ACCESS CONTROL</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-submit">
+                    <i class="fas fa-arrow-right"></i> SIGN IN
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
